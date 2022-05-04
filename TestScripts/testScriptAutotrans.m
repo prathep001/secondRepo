@@ -5,7 +5,7 @@ modelName = 'sim_autotrans';
 inputName = 'inputVector';
 testScriptFilepath = mfilename('fullpath');
 [testDir,~,~] = fileparts(testScriptFilepath);
-[parentDir,~,~] = fileparts(testScriptFilepath);
+[parentDir,~,~] = fileparts(testDir);
 modelDir= [parentDir '\ModelFile'];
 testDataDir = [parentDir '\TestData'];
 addpath(modelDir);
