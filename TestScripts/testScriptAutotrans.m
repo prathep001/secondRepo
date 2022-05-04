@@ -9,9 +9,11 @@ testScriptFilepath = mfilename('fullpath');
 modelDir= [parentDir '\ModelFile'];
 testDataDir = [parentDir '\TestData'];
 addpath(modelDir);
+disp(modelDir);
 addpath(testDataDir);
+disp(testDataDir);
 % Searching Test Data Files.
-testFiles = dir([testDir '\*.mat']);
+testFiles = dir([testDataDir '\*.mat']);
 if isempty(testFiles)
     disp('No TestFiles are found');
     return;
