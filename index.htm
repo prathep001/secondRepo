@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src = " https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+<script type="text/javascript">
+//Read the csv file and write the values.
+var input1 = document.getElementById("Input1");
+var input2 = document.getElementById("Input2");
+var output = document.getElementById("Output");
+var choice = document.getElementById("Choice");
+reader = new FileReader();
+//When the file finish load
+function readTextFile(file)
+{
+var rawFile = new XMLHttpRequest();
+rawFile.open("GET", file, true);
+rawFile.onreadystatechange = function ()
+{
+if(rawFile.readyState === 4)
+{
+if(rawFile.status === 200 || rawFile.status == 0)
+{
+var allText = rawFile.responseText;
+alert(allText);
+}
+}
+}
+rawFile.send(null);
+}
+readTextFile("multiport_details.csv");
+</script>
+<style>
+mark{background-color:#ADD8E6;color: Black;}
+.center{margin: auto;width: 60;border: 3px solid black;padding: 10px;}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class = "center">
+<h3 align=center>Multiport Script Details </h3>
+<h3>Date:13-Jan-2021 22:24:01 </h3>
+<div class = "grid-container">
+<div class = "grid-item">
+<p> Input 1</p>
+<p id = "Input1"></p>
+</div>
+<div class = "grid-item"></div>
+<div class = "grid-item"></div>
+<div class = "grid-item"></div>
+<div class = "grid-item">
+<p> Choice</p>
+<p id = "Choice"></p>
+</div>
+<div class = "grid-item">
+<p> Output</p>
+<p id = "Output"></p>
+</div>
+<div class = "grid-item">
+<p> Input 2</p>
+<p id = "Input1"></p>
+</div>
+<div class = "grid-item"></div>
+<div class = "grid-item"></div>
+</div>
+</div>
+<input id="csv" type = "file" value="multiport_details.csv">
+</body>
+</html>
