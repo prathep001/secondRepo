@@ -30,7 +30,7 @@ for idx = 1:length(testFiles)
     testData = load(testFiles(idx).name);
     testName = fieldnames(testData);
     disp('******************************************************************');
-    disp(['Test no: ' numstr(idx) ' - ' testname{1}]);
+    disp(['Test no: ' num2str(idx) ' - ' testname{1}]);
     disp('******************************************************************');
     assignin('base',inputName,testData.(testName{1}));
     disp('Simulating the model');
