@@ -16,6 +16,7 @@ if isempty(testFiles)
     disp('No TestFiles are found');
     return;
 end
+% Loading Model
 disp('Loading system model ....');
 load_system(modelName)
 disp('Model loaded successfully');
