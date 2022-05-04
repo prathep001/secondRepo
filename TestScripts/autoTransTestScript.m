@@ -10,7 +10,7 @@ modelDir= [parentDir '\ModelFile'];
 testDataDir = [parentDir '\TestData'];
 addpath(modelDir);
 addpath(testDataDir);
-
+% Searching Test Data Files.
 testFiles = dir([testDir '\*.mat']);
 if isempty(testFiles)
     disp('No TestFiles are found');
