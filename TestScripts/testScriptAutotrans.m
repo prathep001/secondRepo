@@ -44,7 +44,7 @@ for idx = 1:length(testFiles)
         continue;
     end
 end
-
+% Close system
 close_system(modelName,0);
 disp('******************************************************************');
 disp('Test Summary');
