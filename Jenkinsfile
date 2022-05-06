@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools{
-        tool name: 'MATLAB', type: 'matlab'
-    }
     stages {
         stage('Checkout') {
             steps {
