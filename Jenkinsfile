@@ -15,8 +15,8 @@ pipeline {
         }
 		
 		stage('MATLAB command test') {
-			tool name: 'MATLAB', type: 'matlab'
             steps {
+				tool name: 'MATLAB', type: 'matlab'
                 dir('TestScripts') {
 					runMATLABCommand 'testScriptAutotrans'
 				}
