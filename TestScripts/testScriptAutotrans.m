@@ -46,6 +46,7 @@ for idx = 1:length(testFiles)
 end
 % Close system
 close_system(modelName,0);
+% Messages
 disp('******************************************************************');
 disp('Test Summary');
 disp('******************************************************************');
