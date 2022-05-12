@@ -24,7 +24,7 @@ load_system(modelName)
 disp('Model loaded successfully');
 passCount = 0;
 failCount = 0;
-% Test file in loop
+% Test file in loop.
 for idx = 1:length(testFiles)
     disp('Clearing Test Data if any');
     clear(inputName);
