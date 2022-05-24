@@ -22,9 +22,12 @@ pipeline {
 					String FileEditTypeLocal = " "
 					String ChangedFilePathLocal = " "
 					(FileEditTypeLocal, ChangedFilePathLocal) = getFilteredFiles()
-					echo "After checkout"
+					echo "After checkout Local Var"
+					echo "FileEditTypeLocal is ${FileEditTypeLocal}"
+					echo "ChangedFilePathLocal is ${ChangedFilePathLocal}"
 					env.FileEditType = FileEditTypeLocal
 					env.ChangedFilePath = ChangedFilePathLocal
+					echo "After checkout Environment Var"
 					echo "FileEditTypeLocal is ${env.FileEditType}"
 					echo "ChangedFilePathLocal is ${env.ChangedFilePath}"
 				}
