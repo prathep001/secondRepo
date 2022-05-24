@@ -31,7 +31,7 @@ pipeline {
 					}
 					def a=pwd()
 					echo "${a}"
-					filename = "changeDetailsText.txt";
+					filename = pwd() + "\changeDetailsText.txt";
 					writeFile(file: filename, text: '${FileEditType} \n ${ChangedFilePath}')
 					sh 'ls -l'
 				}
