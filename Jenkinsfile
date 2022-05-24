@@ -4,8 +4,8 @@ pipeline {
     agent any
 	
 	parameters  { 
-		FileEditType = ''
-		ChangedFilePath = ''
+		string(name: 'FileEditType', defaultValue: '')
+		string(name: 'ChangedFilePath', defaultValue: '')
 	}
     stages {
 		
