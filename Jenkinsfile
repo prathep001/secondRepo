@@ -18,7 +18,7 @@ pipeline {
 				echo "Before checkout"
 				echo "a is ${a}"
 				echo "a is ${b}"
-				[a, b] = getFilteredFiles()
+				(a, b) = getFilteredFiles()
 				echo "After checkout"
 				echo "a is ${a}"
 				echo "a is ${b}"
