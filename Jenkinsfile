@@ -19,11 +19,12 @@ pipeline {
 			
             steps {
 				script {
+					
 					(FileEditType, ChangedFilePath) = getFilteredFiles()					
 					echo "After checkout Environment Var"
 					echo "FileEditTypeLocal is ${FileEditType}"
 					echo "ChangedFilePathLocal is ${ChangedFilePath}"
-					filename = envVars.get('WORKSPACE') + "/changeDetailsText.txt";
+					filename = EnvVars.get('WORKSPACE') + "/changeDetailsText.txt";
 					writeFile(file: filename, text: '${FileEditType} \n ${ChangedFilePath}')
 					sh 'ls -l'
 				}
