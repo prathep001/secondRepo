@@ -30,7 +30,7 @@ pipeline {
 				tool name: 'MATLAB', type: 'matlab'
                 dir('TestScripts') {
 					
-					runMATLABCommand 'testScriptAutotrans(${env.FileEditType}, ${env.ChangedFilePath})'
+					runMATLABCommand 'testScriptAutotrans(env.FileEditType, env.ChangedFilePath)'
 				}
             }
         }
