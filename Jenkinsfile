@@ -19,6 +19,7 @@ pipeline {
 			
             steps {
 				script {
+					import hudson.EnvVars
 					
 					(FileEditType, ChangedFilePath) = getFilteredFiles()					
 					echo "After checkout Environment Var"
