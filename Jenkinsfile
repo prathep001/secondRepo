@@ -23,7 +23,8 @@ pipeline {
 					echo "After checkout Environment Var"
 					echo "FileEditTypeLocal is ${FileEditType}"
 					echo "ChangedFilePathLocal is ${ChangedFilePath}"
-					writeFile file: 'changeDetailsText.txt', text: '${FileEditType} \n ${ChangedFilePath}'
+					filename = envVars.get('WORKSPACE') + "/changeDetailsText.txt";
+					writeFile file: filename, text: '${FileEditType} \n ${ChangedFilePath}'
 					sh 'ls -l changeDetailsText.txt'
 					sh 'cat changeDetailsText.txt'
 				}
