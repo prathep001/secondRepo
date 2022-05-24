@@ -2,6 +2,11 @@
 // Declarative //
 pipeline {
     agent any
+	
+	environment { 
+		FileEditType = " "
+		ChangedFilePath = " "
+	}
     stages {
 		
         stage('Checkout') {
@@ -14,15 +19,7 @@ pipeline {
 			
             steps {
 				script {
-					String a = " "
-					String b = " "
-					echo "Before checkout"
-					echo "a is ${a}"
-					echo "a is ${b}"
-					(a, b) = getFilteredFiles()
-					echo "After checkout"
-					echo "a is ${a}"
-					echo "a is ${b}"
+					(FileEditType, ChangedFilePath) = getFilteredFiles()
 				}
 				
             }

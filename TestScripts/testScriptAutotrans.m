@@ -1,6 +1,7 @@
-% function autoTransTestScript
-% 
-% end
+function testScriptAutotrans(changeType, changedFilePath)
+disp(changeType);
+disp(changedFilePath);
+return;
 modelName = 'sim_autotrans';
 inputName = 'inputVector';
 testScriptFilepath = mfilename('fullpath');
@@ -58,4 +59,5 @@ if ~isequal(failCount,0)
     disp(errorMsg);
 else
     disp('Overall Test Result: Passed');
+end
 end
