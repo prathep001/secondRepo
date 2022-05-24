@@ -13,7 +13,7 @@ pipeline {
         stage('Filter') {
 			
             steps {
-				def [a, b] = getFilteredFiles()
+				[a, b] = getFilteredFiles()
 				echo "${a}"
 				echo "${b}"
 				
