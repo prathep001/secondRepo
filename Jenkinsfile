@@ -14,8 +14,8 @@ pipeline {
 			
             steps {
 				script {
-					char a = ""
-					char b = ""
+					String a = " "
+					String b = " "
 					echo "Before checkout"
 					echo "a is ${a}"
 					echo "a is ${b}"
