@@ -23,6 +23,9 @@ pipeline {
 					echo "After checkout Environment Var"
 					echo "FileEditTypeLocal is ${FileEditType}"
 					echo "ChangedFilePathLocal is ${ChangedFilePath}"
+					writeFile file: 'changeDetailsText.txt', text: '${FileEditType} \n ${ChangedFilePath}'
+					sh 'ls -l changeDetailsText.txt'
+					sh 'cat changeDetailsText.txt'
 				}
 				
             }
@@ -35,7 +38,7 @@ pipeline {
 					echo "In Command Test Var"
 					echo "FileEditTypeLocal is ${FileEditType}"
 					echo "ChangedFilePathLocal is ${ChangedFilePath}"
-					sh "runMATLABCommand 'testScriptAutotrans(' ${FileEditType} ',' ${ChangedFilePath} ')'"
+					runMATLABCommand 'testScriptAutotrans'
 				}
             }
         }

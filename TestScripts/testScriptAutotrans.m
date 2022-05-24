@@ -1,12 +1,15 @@
-function testScriptAutotrans(changeType, changedFilePath)
-disp(changeType);
-disp(changedFilePath);
-return;
+
 modelName = 'sim_autotrans';
 inputName = 'inputVector';
 testScriptFilepath = mfilename('fullpath');
 [testDir,~,~] = fileparts(testScriptFilepath);
 [parentDir,~,~] = fileparts(testDir);
+textFiles = dir([parentDir '\*.txt']);
+if ~isempty(textFiles)
+    disp({textFiles.name});
+else
+    return;
+end
 modelDir= [parentDir '\ModelFile'];
 testDataDir = [parentDir '\TestData'];
 addpath(modelDir);
@@ -59,5 +62,4 @@ if ~isequal(failCount,0)
     disp(errorMsg);
 else
     disp('Overall Test Result: Passed');
-end
 end
