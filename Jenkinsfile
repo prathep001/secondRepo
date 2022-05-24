@@ -35,7 +35,7 @@ pipeline {
 					echo "In Command Test Var"
 					echo "FileEditTypeLocal is ${FileEditType}"
 					echo "ChangedFilePathLocal is ${ChangedFilePath}"
-					runMATLABCommand 'testScriptAutotrans(FileEditType,ChangedFilePath)'
+					runMATLABCommand 'testScriptAutotrans(\' ${FileEditType} \',\' ${ChangedFilePath} \')'
 				}
             }
         }
