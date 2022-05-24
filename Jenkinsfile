@@ -13,15 +13,17 @@ pipeline {
         stage('Filter') {
 			
             steps {
-				char a = ""
-				char b = ""
-				echo "Before checkout"
-				echo "a is ${a}"
-				echo "a is ${b}"
-				(a, b) = getFilteredFiles()
-				echo "After checkout"
-				echo "a is ${a}"
-				echo "a is ${b}"
+				script {
+					char a = ""
+					char b = ""
+					echo "Before checkout"
+					echo "a is ${a}"
+					echo "a is ${b}"
+					(a, b) = getFilteredFiles()
+					echo "After checkout"
+					echo "a is ${a}"
+					echo "a is ${b}"
+				}
 				
             }
         }
