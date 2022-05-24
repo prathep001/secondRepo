@@ -4,8 +4,8 @@ pipeline {
     agent any
 	
 	environment { 
-		FileEditType = " "
-		ChangedFilePath = " "
+		FileEditType = ''
+		ChangedFilePath = ''
 	}
     stages {
 		
@@ -19,7 +19,14 @@ pipeline {
 			
             steps {
 				script {
-					(env.FileEditType, env.ChangedFilePath) = getFilteredFiles()
+					String FileEditTypeLocal = " "
+					String ChangedFilePathLocal = " "
+					(FileEditTypeLocal, ChangedFilePathLocal) = getFilteredFiles()
+					echo "After checkout"
+					env.FileEditType = FileEditTypeLocal
+					env.ChangedFilePath = ChangedFilePathLocal
+					echo "FileEditTypeLocal is ${env.FileEditType}"
+					echo "ChangedFilePathLocal is ${env.ChangedFilePath}"
 				}
 				
             }
