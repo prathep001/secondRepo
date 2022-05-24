@@ -1,6 +1,8 @@
 
 modelName = 'sim_autotrans';
 inputName = 'inputVector';
+baseVar = evalin('base','who');
+disp(baseVar);
 testScriptFilepath = mfilename('fullpath');
 [testDir,~,~] = fileparts(testScriptFilepath);
 [parentDir,~,~] = fileparts(testDir);
