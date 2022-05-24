@@ -32,7 +32,9 @@ pipeline {
             steps {
 				tool name: 'MATLAB', type: 'matlab'
                 dir('TestScripts') {
-					
+					echo "In Command Test Var"
+					echo "FileEditTypeLocal is ${FileEditType}"
+					echo "ChangedFilePathLocal is ${ChangedFilePath}"
 					runMATLABCommand 'testScriptAutotrans'
 				}
             }
