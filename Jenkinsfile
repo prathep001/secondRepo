@@ -13,9 +13,15 @@ pipeline {
         stage('Filter') {
 			
             steps {
+				char a = ""
+				char b = ""
+				echo "Before checkout"
+				echo "a is ${a}"
+				echo "a is ${b}"
 				[a, b] = getFilteredFiles()
-				echo "${a}"
-				echo "${b}"
+				echo "After checkout"
+				echo "a is ${a}"
+				echo "a is ${b}"
 				
             }
         }
@@ -56,5 +62,5 @@ def getFilteredFiles(){
 			}
 		}
 	}
-	return changeTypeString, changePathString
+	return [changeTypeString, changePathString]
 }
