@@ -26,7 +26,11 @@ pipeline {
 					def existFlag = fileExists('changeDetailsText.txt')
 					if (existFlag){
 						echo "File exists"
+						echo "${existFlag}"
+						
 					}
+					def a=pwd()
+					echo "${a}"
 					filename = "changeDetailsText.txt";
 					writeFile(file: filename, text: '${FileEditType} \n ${ChangedFilePath}')
 					sh 'ls -l'
