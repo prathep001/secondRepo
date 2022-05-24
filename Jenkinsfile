@@ -19,7 +19,7 @@ pipeline {
 			
             steps {
 				script {
-					(FileEditType, ChangedFilePath) = getFilteredFiles()
+					(env.FileEditType, env.ChangedFilePath) = getFilteredFiles()
 				}
 				
             }
@@ -30,7 +30,7 @@ pipeline {
 				tool name: 'MATLAB', type: 'matlab'
                 dir('TestScripts') {
 					
-					runMATLABCommand 'testScriptAutotrans'
+					runMATLABCommand 'testScriptAutotrans(${env.FileEditType}, ${env.ChangedFilePath})'
 				}
             }
         }
