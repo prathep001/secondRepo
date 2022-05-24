@@ -13,7 +13,9 @@ pipeline {
         stage('Filter') {
 			
             steps {
-				getFilteredFiles()
+				def [a, b] = getFilteredFiles()
+				echo "${a}"
+				echo "${b}"
             }
         }
 		
@@ -21,6 +23,7 @@ pipeline {
             steps {
 				tool name: 'MATLAB', type: 'matlab'
                 dir('TestScripts') {
+					
 					runMATLABCommand 'testScriptAutotrans'
 				}
             }
@@ -31,6 +34,8 @@ pipeline {
 @NonCPS
 def getFilteredFiles(){
 	def changeLogSets = currentBuild.changeSets
+	def changeTypeString = ""
+	def changePathString = ""
 	for (int i = 0; i < changeLogSets.size(); i++) {
 		def entries = changeLogSets[i].items
 		for (int j = 0; j < entries.length; j++) {
@@ -39,8 +44,16 @@ def getFilteredFiles(){
 			def files = new ArrayList(entry.affectedFiles)
 			for (int k = 0; k < files.size(); k++) {
 				def file = files[k]
-				echo "  ${file.editType.name} ${file.path}"
+				if (changeTypeString) {
+					changeTypeString += ","
+		        }
+				if (changePathString) {
+					changePathString += ","
+		        }
+				changeTypeString += "  ${file.editType.name}"
+				changePathString += "  ${file.path}"
 			}
 		}
 	}
+	return changeTypeString, changePathString
 }
