@@ -16,6 +16,7 @@ pipeline {
 				def [a, b] = getFilteredFiles()
 				echo "${a}"
 				echo "${b}"
+				
             }
         }
 		
