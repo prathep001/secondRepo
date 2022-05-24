@@ -19,13 +19,15 @@ pipeline {
 			
             steps {
 				script {
-					import hudson.EnvVars
-					
 					(FileEditType, ChangedFilePath) = getFilteredFiles()					
 					echo "After checkout Environment Var"
 					echo "FileEditTypeLocal is ${FileEditType}"
 					echo "ChangedFilePathLocal is ${ChangedFilePath}"
-					filename = EnvVars.get('WORKSPACE') + "/changeDetailsText.txt";
+					def existFlag = fileExists('changeDetailsText.txt')
+					if (existFlag){
+						echo "File exists"
+					}
+					filename = "changeDetailsText.txt";
 					writeFile(file: filename, text: '${FileEditType} \n ${ChangedFilePath}')
 					sh 'ls -l'
 				}
