@@ -3,7 +3,7 @@
 pipeline {
     agent any
 	
-	environment { 
+	parameters  { 
 		FileEditType = ''
 		ChangedFilePath = ''
 	}
@@ -25,11 +25,11 @@ pipeline {
 					echo "After checkout Local Var"
 					echo "FileEditTypeLocal is ${FileEditTypeLocal}"
 					echo "ChangedFilePathLocal is ${ChangedFilePathLocal}"
-					env.FileEditType = FileEditTypeLocal
-					env.ChangedFilePath = ChangedFilePathLocal
+					params.FileEditType = FileEditTypeLocal
+					params.ChangedFilePath = ChangedFilePathLocal
 					echo "After checkout Environment Var"
-					echo "FileEditTypeLocal is ${env.FileEditType}"
-					echo "ChangedFilePathLocal is ${env.ChangedFilePath}"
+					echo "FileEditTypeLocal is ${params.FileEditType}"
+					echo "ChangedFilePathLocal is ${params.ChangedFilePath}"
 				}
 				
             }
