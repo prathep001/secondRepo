@@ -17,7 +17,9 @@ pipeline {
                     echo "${filename}"
 			        writeFile(file: '${filename}', text: 'This is Text')
                     echo "This works"
-			        sh 'ls -l'
+                    def data = readFile(file: '${filename}')
+                    echo "${data}"
+			        //sh 'ls -l'
                 }
 
             }
