@@ -1,4 +1,4 @@
-
+function testScriptAutotrans(varargin)
 modelName = 'sim_autotrans';
 inputName = 'inputVector';
 baseVar = evalin('base','who');
@@ -65,4 +65,5 @@ if ~isequal(failCount,0)
     disp(errorMsg);
 else
     disp('Overall Test Result: Passed');
+end
 end

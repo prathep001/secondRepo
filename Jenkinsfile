@@ -45,7 +45,9 @@ pipeline {
                         def printText = "${FileEditType} \n ${ChangedFilePath}"
                         echo "${printText}"
 					    writeFile(file: '${filename}', text: printText)
-					    runMATLABCommand 'testScriptAutotrans'
+                        def scriptText = 'testScriptAutotrans(\'${FileEditType}\',\'${ChangedFilePath}\')'
+                        echo "${scriptText}"
+					    runMATLABCommand scriptText
                         def data = readFile(file: '${filename}')
                         echo "${data}"
 				    }
