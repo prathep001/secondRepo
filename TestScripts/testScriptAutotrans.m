@@ -74,5 +74,6 @@ if runFlag
     end
 else
     disp('No change in either in model or test case folder. Testing not needed');
+    disp('Previous Test Result retained');
 end
 end
