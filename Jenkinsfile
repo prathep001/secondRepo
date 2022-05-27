@@ -12,6 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checkout completed'
+
             }
         }
 
