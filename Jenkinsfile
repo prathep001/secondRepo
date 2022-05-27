@@ -42,7 +42,9 @@ pipeline {
                         def a=pwd()
 					    def filename = pwd() + "\\changeDetailsText.txt";
 					    echo "${filename}"
-					    writeFile(file: '${filename}', text: '${FileEditType} \n ${ChangedFilePath}')
+                        def printText = "${FileEditType} \n ${ChangedFilePath}"
+                        echo "${printText}"
+					    writeFile(file: '${filename}', text: printText')
 					    runMATLABCommand 'testScriptAutotrans'
                         def data = readFile(file: '${filename}')
                         echo "${data}"
