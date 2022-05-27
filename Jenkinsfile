@@ -26,10 +26,7 @@ pipeline {
 					echo "After checkout Environment Var"
 					echo "FileEditTypeLocal is ${FileEditType}"
 					echo "ChangedFilePathLocal is ${ChangedFilePath}"
-					def a=pwd()
-					def filename = pwd() + "\\changeDetailsText.txt";
-					echo "${filename}"
-					writeFile(file: '${filename}', text: '${FileEditType} \n ${ChangedFilePath}')
+					
 				}
 				
             }
@@ -42,7 +39,13 @@ pipeline {
 					echo "In Command Test Var"
 					echo "FileEditTypeLocal is ${FileEditType}"
 					echo "ChangedFilePathLocal is ${ChangedFilePath}"
+                    def a=pwd()
+					def filename = pwd() + "\\changeDetailsText.txt";
+					echo "${filename}"
+					writeFile(file: '${filename}', text: '${FileEditType} \n ${ChangedFilePath}')
 					runMATLABCommand 'testScriptAutotrans'
+                    def data = readFile(file: '${filename}')
+                    echo "${data}"
 				}
             }
         }
