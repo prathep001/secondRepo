@@ -1,12 +1,12 @@
 function testScriptAutotrans(varargin)
-runFlag = true;
+runFlag = false;
 if isequal(nargin,2)
     fileEditType = varargin{1};
     changedFilePath = varargin{2};
     changedFilePath = regexprep(changedFilePath,'\s+','');
     changedFilePath = strsplit(changedFilePath,',');
     disp(changedFilePath);
-    if any(strncmp(changedFilePath,'TestData',length('TestData'))) || any(strncmp(changedFilePath,'ModelFile',length('ModelFile')))
+    if any(strncmp(changedFilePath,'TestData/',length('TestData/'))) || any(strncmp(changedFilePath,'ModelFile/',length('ModelFile/')))
         runFlag = true;
     end
 else
