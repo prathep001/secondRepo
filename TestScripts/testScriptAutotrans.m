@@ -7,9 +7,7 @@ testScriptFilepath = mfilename('fullpath');
 [testDir,~,~] = fileparts(testScriptFilepath);
 [parentDir,~,~] = fileparts(testDir);
 textFiles = dir([parentDir '\*.txt']);
-if ~isempty(textFiles)
-    disp({textFiles.name});
-else
+if isempty(textFiles)
     return;
 end
 modelDir= [parentDir '\ModelFile'];
