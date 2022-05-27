@@ -26,6 +26,7 @@ pipeline {
 					echo "After checkout Environment Var"
 					echo "FileEditTypeLocal is ${FileEditType}"
 					echo "ChangedFilePathLocal is ${ChangedFilePath}"
+                    echo 'Filter completed'
 				}
 				
             }
@@ -39,17 +40,9 @@ pipeline {
 					    echo "In Command Test Var"
 					    echo "FileEditTypeLocal is ${FileEditType}"
 					    echo "ChangedFilePathLocal is ${ChangedFilePath}"
-                        def a=pwd()
-					    def filename = pwd() + "\\changeDetailsText.txt";
-					    echo "${filename}"
-                        def printText = "${FileEditType} \n ${ChangedFilePath}"
-                        echo "${printText}"
-					    writeFile(file: '${filename}', text: printText)
                         def scriptText = "testScriptAutotrans('${FileEditType}','${ChangedFilePath}')"
                         echo "${scriptText}"
 					    runMATLABCommand scriptText
-                        def data = readFile(file: '${filename}')
-                        echo "${data}"
 				    }
                 }
             }
