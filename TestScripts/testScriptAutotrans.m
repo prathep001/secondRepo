@@ -8,9 +8,13 @@ testScriptFilepath = mfilename('fullpath');
 [parentDir,~,~] = fileparts(testDir);
 addpath(parentDir);
 textFiles = dir([parentDir '\*.txt']);
-% if isempty(textFiles)
-%     return;
-% end
+if ~isempty(textFiles)
+    disp('Text File is not empty');
+    return;
+else
+    disp('text File is empty');
+    return;
+end
 
 
 modelDir= [parentDir '\ModelFile'];
