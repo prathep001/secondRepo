@@ -13,13 +13,6 @@ pipeline {
             steps {
                 script {
                     echo 'Checkout completed'
-                    def filename = pwd() + "\\changeDetailsText.txt";
-                    echo "${filename}"
-			        writeFile(file: '${filename}', text: 'This is Text')
-                    echo "This works"
-                    def data = readFile(file: '${filename}')
-                    echo "${data}"
-			        //sh 'ls -l'
                 }
 
             }
@@ -33,19 +26,10 @@ pipeline {
 					echo "After checkout Environment Var"
 					echo "FileEditTypeLocal is ${FileEditType}"
 					echo "ChangedFilePathLocal is ${ChangedFilePath}"
-					def existFlag = fileExists('changeDetailsText.txt')
-					if (existFlag){
-						echo "File exists"
-						echo "${existFlag}"
-						
-					}
-					
 					def a=pwd()
 					def filename = pwd() + "\\changeDetailsText.txt";
-                    
 					echo "${filename}"
-					//writeFile(file: '${filename}', text: '${FileEditType} \n ${ChangedFilePath}')
-					//sh 'ls -l'
+					writeFile(file: '${filename}', text: '${FileEditType} \n ${ChangedFilePath}')
 				}
 				
             }
