@@ -6,16 +6,13 @@ disp(baseVar);
 testScriptFilepath = mfilename('fullpath');
 [testDir,~,~] = fileparts(testScriptFilepath);
 [parentDir,~,~] = fileparts(testDir);
-textFiles = dir([testDir '\*.txt']);
-if ~isempty(textFiles)
-    disp('Text File is not empty');
-    return;
-else
-    disp('text File is empty');
-    return;
+textFilePath = [testDir '\changeDetailsText.txt'];
+try
+    filetext = fileread(textFilePath);
+    filetext = strsplit(filetext,'\n');
+catch
+    disp('Unable to read File');
 end
-
-
 modelDir= [parentDir '\ModelFile'];
 testDataDir = [parentDir '\TestData'];
 addpath(modelDir);
