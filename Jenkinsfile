@@ -26,7 +26,6 @@ pipeline {
 					echo "After checkout Environment Var"
 					echo "FileEditTypeLocal is ${FileEditType}"
 					echo "ChangedFilePathLocal is ${ChangedFilePath}"
-					
 				}
 				
             }
