@@ -12,6 +12,10 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checkout completed'
+                def filename = pwd() + "\\changeDetailsText.txt";
+                echo "${filename}"
+			    writeFile(file: '${filename}', text: 'This is Text')
+			    sh 'ls -l'
 
             }
         }
@@ -33,6 +37,7 @@ pipeline {
 					
 					def a=pwd()
 					def filename = pwd() + "\\changeDetailsText.txt";
+                    
 					echo "${filename}"
 					//writeFile(file: '${filename}', text: '${FileEditType} \n ${ChangedFilePath}')
 					//sh 'ls -l'
