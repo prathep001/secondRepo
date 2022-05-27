@@ -16,6 +16,7 @@ pipeline {
                     def filename = pwd() + "\\changeDetailsText.txt";
                     echo "${filename}"
 			        writeFile(file: '${filename}', text: 'This is Text')
+                    echo "This works"
 			        sh 'ls -l'
                 }
 
