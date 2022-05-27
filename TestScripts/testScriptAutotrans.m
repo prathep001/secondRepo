@@ -6,10 +6,13 @@ disp(baseVar);
 testScriptFilepath = mfilename('fullpath');
 [testDir,~,~] = fileparts(testScriptFilepath);
 [parentDir,~,~] = fileparts(testDir);
-% textFiles = dir([parentDir '\*.txt']);
+addpath(parentDir);
+textFiles = dir([parentDir '\*.txt']);
 % if isempty(textFiles)
 %     return;
 % end
+
+
 modelDir= [parentDir '\ModelFile'];
 testDataDir = [parentDir '\TestData'];
 addpath(modelDir);
