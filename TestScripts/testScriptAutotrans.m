@@ -7,6 +7,7 @@ testScriptFilepath = mfilename('fullpath');
 [testDir,~,~] = fileparts(testScriptFilepath);
 [parentDir,~,~] = fileparts(testDir);
 addpath(parentDir);
+disp(parentDir);
 textFiles = dir([parentDir '\*.txt']);
 if ~isempty(textFiles)
     disp('Text File is not empty');
