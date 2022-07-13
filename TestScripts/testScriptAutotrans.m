@@ -5,7 +5,7 @@ if isequal(nargin,2)
     changedFilePath = varargin{2};
     changedFilePath = regexprep(changedFilePath,'\s+','');
     changedFilePath = strsplit(changedFilePath,',');
-    disp(changedFilePath);
+    fprintf(changedFilePath);
     if any(strncmp(changedFilePath,'TestData/',length('TestData/'))) || any(strncmp(changedFilePath,'ModelFile/',length('ModelFile/')))
         runFlag = true;
     end
@@ -23,38 +23,38 @@ if runFlag
     modelDir= [parentDir '\ModelFile'];
     testDataDir = [parentDir '\TestData'];
     addpath(modelDir);
-    disp(modelDir);
+    fprintf(modelDir);
     addpath(testDataDir);
-    disp(testDataDir);
+    fprintf(testDataDir);
     % Searching Test Data Files.
     testFiles = dir([testDataDir '\*.mat']);
     if isempty(testFiles)
-        disp('No TestFiles are found');
+        fprintf('No TestFiles are found');
         return;
     end
     % Loading Model
-    disp('Loading system model ....');
+    fprintf('Loading system model ....');
     load_system(modelName)
-    disp('Model loaded successfully');
+    fprintf('Model loaded successfully');
     passCount = 0;
     failCount = 0;
     % Test file in loop.
     for idx = 1:length(testFiles)
-        disp('Clearing Test Data if any');
+        fprintf('Clearing Test Data if any');
         clear(inputName);
         testData = load(testFiles(idx).name);
         testName = fieldnames(testData);
-        disp('******************************************************************');
-        disp(['Test no: ' num2str(idx) ' - ' testName{1}]);
-        disp('******************************************************************');
+        fprintf('******************************************************************');
+        fprintf(['Test no: ' num2str(idx) ' - ' testName{1}]);
+        fprintf('******************************************************************');
         assignin('base',inputName,testData.(testName{1}));
-        disp('Simulating the model');
+        fprintf('Simulating the model');
         try
             sim(modelName);
-            disp('Test Passed');
+            fprintf('Test Passed');
             passCount = passCount+ 1;
         catch
-            disp('Test Failed');
+            fprintf('Test Failed');
             failCount = failCount+ 1;
             continue;
         end
@@ -62,19 +62,19 @@ if runFlag
     % Close system
     close_system(modelName,0);
     % Messages
-    disp('******************************************************************');
-    disp('Test Summary');
-    disp('******************************************************************');
-    disp(['Number of Test Cases: ' num2str(idx)]);
-    disp(['Number of test Cases Passed: ' num2str(passCount)]);
-    disp(['Number of test Cases Failed: ' num2str(failCount)]);
+    fprintf('******************************************************************');
+    fprintf('Test Summary');
+    fprintf('******************************************************************');
+    fprintf(['Number of Test Cases: ' num2str(idx)]);
+    fprintf(['Number of test Cases Passed: ' num2str(passCount)]);
+    fprintf(['Number of test Cases Failed: ' num2str(failCount)]);
     if ~isequal(failCount,0)
-        disp(errorMsg);
+        fprintf(errorMsg);
     else
-        disp('Overall Test Result: Passed');
+        fprintf('Overall Test Result: Passed');
     end
 else
-    disp('No change in either in model or test case folder. Testing not needed');
-    disp('Previous Test Result retained');
+    fprintf('No change in either in model or test case folder. Testing not needed');
+    fprintf('Previous Test Result retained');
 end
 end
