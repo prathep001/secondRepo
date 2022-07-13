@@ -12,6 +12,7 @@ if isequal(nargin,2)
 else
     runFlag = true;
 end
+
 if runFlag
     modelName = 'sim_autotrans';
     inputName = 'inputVector';
